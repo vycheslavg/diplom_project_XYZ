@@ -12,7 +12,7 @@ Sword::Sword(XYZEngine::GameObject* gameObject) : Weapon(gameObject) {
     swordRenderer =
         weaponObject->AddComponent<XYZEngine::SpriteRendererComponent>();
     swordRenderer->SetTexture(
-        *XYZEngine::ResourceSystem::Instance()->GetTextureShared("ball"));
+        *XYZEngine::ResourceSystem::Instance()->GetTextureShared("ball22"));
     swordRenderer->SetPixelSize(0, 0);
     body = weaponObject->AddComponent<XYZEngine::RigidbodyComponent>();
     body->SetKinematic(true);
@@ -31,7 +31,7 @@ void Sword::Update(float deltaTime) {
         auto characterRotation = ownerTransform->GetWorldRotation();
 
         float dirX = cos(transform->GetWorldRotation() * 3.14159265f /
-                         180.f);  // Ïåðåâîäèì â ðàäèàíû
+                         180.f);  // ÃÃ¥Ã°Ã¥Ã¢Ã®Ã¤Ã¨Ã¬ Ã¢ Ã°Ã Ã¤Ã¨Ã Ã­Ã»
         float dirY = sin(transform->GetWorldRotation() * 3.14159265f / 180.f);
 
         XYZEngine::Vector2Df offset;
