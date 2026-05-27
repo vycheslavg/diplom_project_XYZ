@@ -1,44 +1,84 @@
 #include "Player.h"
+
+#include "AttackComponent.h"
+#include "CharacterStatsComponent.h"
+#include "ControllerInputComponent.h"
+#include "Explosion.h"
+#include "GameSettings.h"
+#include "InventoryComponent.h"
+#include "Sword.h"
+
+#include <MovementComponent.h>
 #include <ResourceSystem.h>
 #include <SpriteColliderComponent.h>
-#include <MovementComponent.h>
 #include <SpriteDirectionComponent.h>
 #include <SpriteMovementAnimationComponent.h>
 
-namespace XYZRoguelike
-{
-	Player::Player(const XYZEngine::Vector2Df& position)
-	{
-		gameObject = XYZEngine::GameWorld::Instance()->CreateGameObject("Player");
-		auto transform = gameObject->GetComponent<XYZEngine::TransformComponent>();
-		transform->SetWorldPosition(position);
+namespace XYZRoguelike {
 
-		auto renderer = gameObject->AddComponent<XYZEngine::SpriteRendererComponent>();
-		renderer->SetTexture(*XYZEngine::ResourceSystem::Instance()->GetTextureMapElementShared("player", 0));
-		renderer->SetPixelSize(100, 100);
+Player::Player(const XYZEngine::Vector2Df& position) {
+    gameObject = XYZEngine::GameWorld::Instance()->CreateGameObject(
+        GameSettings::Instance()->PLAYER_NAME);
 
-		auto camera = gameObject->AddComponent<XYZEngine::CameraComponent>();
-		camera->SetWindow(&XYZEngine::RenderSystem::Instance()->GetMainWindow());
-		camera->SetBaseResolution(1280, 720);
+    auto playerRenderer =
+        gameObject->AddComponent<XYZEngine::SpriteRendererComponent>();
 
-		auto input = gameObject->AddComponent<XYZEngine::InputComponent>();
+    playerRenderer->SetTexture(
+        *XYZEngine::ResourceSystem::Instance()->GetTextureMapElementShared(
+            "player", 0));
 
-		auto movement = gameObject->AddComponent<XYZEngine::MovementComponent>();
-		movement->SetSpeed(400.f);
+    playerRenderer->SetPixelSize(32, 32);
 
-		auto spriteDirection = gameObject->AddComponent<XYZEngine::SpriteDirectionComponent>();
+    auto playerCamera = gameObject->AddComponent<XYZEngine::CameraComponent>();
 
-		auto rigidbody = gameObject->AddComponent<XYZEngine::RigidbodyComponent>();
-		rigidbody->SetKinematic(false);
+    playerCamera->SetWindow(
+        &XYZEngine::RenderSystem::Instance()->GetMainWindow());
 
-		auto collider = gameObject->AddComponent<XYZEngine::SpriteColliderComponent>();
+    playerCamera->SetBaseResolution(1280, 720);
+    playerCamera->SetTurnTracking(false);
 
-		auto animator = gameObject->AddComponent<XYZEngine::SpriteMovementAnimationComponent>();
-		animator->Initialize("player", 6.f);
-	}
+    auto playerInput = gameObject->AddComponent<XYZEngine::InputComponent>();
 
-	XYZEngine::GameObject* Player::GetGameObject()
-	{
-		return gameObject;
-	}
+    auto inventory = gameObject->AddComponent<InventoryComponent>();
+
+    auto transform = gameObject->GetComponent<XYZEngine::TransformComponent>();
+
+    transform->SetWorldPosition(position);
+
+    auto movement = gameObject->AddComponent<XYZEngine::MovementComponent>();
+
+    movement->SetSpeed(400.f);
+    movement->SetDirectionalRotation(true);
+
+    auto spriteDirection =
+        gameObject->AddComponent<XYZEngine::SpriteDirectionComponent>();
+
+    auto body = gameObject->AddComponent<XYZEngine::RigidbodyComponent>();
+
+    auto weapon = gameObject->AddComponent<Sword>();
+
+    auto attackSystem = gameObject->AddComponent<AttackComponent>();
+
+    auto controllerInput = gameObject->AddComponent<ControllerInputComponent>();
+
+    auto collider =
+        gameObject->AddComponent<XYZEngine::SpriteColliderComponent>();
+
+    auto animator =
+        gameObject->AddComponent<XYZEngine::SpriteMovementAnimationComponent>();
+
+    animator->Initialize("player", 6.f);
+
+    // ===== HP COMPONENT =====
+
+    auto playerStats = gameObject->AddComponent<CharacterStatsComponent>();
+
+    playerStats->SetArmor(4.f);
+
+    // Помечаем что это HUD игрока
+    playerStats->isPlayerStats = true;
 }
+
+XYZEngine::GameObject* Player::GetGameObject() { return gameObject; }
+
+}  // namespace XYZRoguelike

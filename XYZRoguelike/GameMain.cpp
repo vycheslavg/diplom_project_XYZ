@@ -1,31 +1,57 @@
 ﻿// ©2023, XYZ School. All rights reserved.
 // Authored by Aleksandr Rybalka (polterageist@gmail.com)
 
-#include <SFML/Graphics.hpp>
-#include "Player.h"
+#include "LevelManager.h"
 #include "Engine.h"
-#include "ResourceSystem.h"
-#include "DeveloperLevel.h"
+#include "Logger.h"
 #include "Matrix2D.h"
+#include "Player.h"
+#include "ResourceSystem.h"
+
+#include <SFML/Graphics.hpp>
 
 using namespace XYZRoguelike;
 
-int main()
-{
-	XYZEngine::RenderSystem::Instance()->SetMainWindow(new sf::RenderWindow(sf::VideoMode(1280, 720), "XYZRoguelike"));
+int main() {
+    // Configuring the logger
+    auto logger = std::make_shared<Logger>();
+    logger->addSink(std::make_shared<ConsoleSink>());
+    logger->addSink(std::make_shared<FileSink>("log.txt"));
+    LoggerRegistry::getInstance().registerLogger("global", logger);
+    LoggerRegistry::getInstance().setDefaultLogger(logger);
 
-	//XYZEngine::ResourceSystem::Instance()->LoadTexture("ball", "Resources/Textures/ball.png");
+    XYZEngine::RenderSystem::Instance()->SetMainWindow(
+        new sf::RenderWindow(sf::VideoMode(1280, 720), "Roguelike"));
 
-	ResourceSystem::Instance()->LoadTextureMap("player", "Resources/TextureMaps/Player.png", { 48, 63 }, 4, false);
-	ResourceSystem::Instance()->LoadTextureMap("level_floors", "Resources/TextureMaps/Floor.png", { 16, 16 }, 49, false);
-	ResourceSystem::Instance()->LoadTextureMap("level_walls", "Resources/TextureMaps/Wall.png", { 16, 16 }, 48, false);
+    XYZEngine::ResourceSystem::Instance()->LoadTextureMap(
+        "player", "Resources/MapsTexture/Player.png", {48, 63}, 4, false);
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "ball", "Resources/Textures/ball.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "sword", "Resources/Textures/sword.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTextureMap(
+        "Walls", "Resources/MapsTexture/Walls.png", {16, 16}, 48, false);
+    XYZEngine::ResourceSystem::Instance()->LoadTextureMap(
+        "Floors", "Resources/MapsTexture/Floors.png", {16, 16}, 48, false);
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "Explosion", "Resources/Textures/Explosion.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "KingOfSwords", "Resources/Textures/KingOfSwords.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "ShadowOfSword", "Resources/Textures/ShadowOfSword.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "SwordOfKing", "Resources/Textures/SwordOfKing.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "Fireball", "Resources/Textures/Fireball.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "DeceasedMagician", "Resources/Textures/DeceasedMagician.png");
 
-	ResourceSystem::Instance()->LoadSound("music", "Resources/Sounds/AppleEat.wav");
+    ResourceSystem::Instance()->LoadSound(
+        "BackgroundMusic", "Resources/Music/BackgroundMusic.wav");
 
-	auto developerLevel = std::make_shared<DeveloperLevel>();
-	developerLevel->Start();
+    LevelManager::Instance()->LoadRandomLevels();
 
-	XYZEngine::Engine::Instance()->Run();
+    XYZEngine::Engine::Instance()->Run();
 
-	return 0;
+    return 0;
 }
