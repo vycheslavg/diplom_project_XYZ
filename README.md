@@ -96,7 +96,7 @@ Game.sln
 main
 ```
 
-### Пример feature-веток
+### Ветки
 
 ```bash
 
