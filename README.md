@@ -39,7 +39,6 @@ diplom_project_XYZ/
     ├── Game.cpp            # Основная логика игры
     ├── Application.cpp     # Инициализация приложения
     ├── Block.cpp           # Игровые блоки
-    ├── Ball.cpp            # Логика мяча
     ├── Bonus.cpp           # Система бонусов
     ├── GameState.cpp       # Игровые состояния
     └── ...
@@ -99,7 +98,7 @@ diplom_project_XYZ-main
 ### Ветки
 
 ```bash
-
+feature/boos
 ```
 
 ---
