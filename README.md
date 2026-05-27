@@ -99,10 +99,7 @@ main
 ### Пример feature-веток
 
 ```bash
-feature/hud
-feature/bonus-system
-feature/game-menu
-fix/collision-bugs
+
 ```
 
 ---
