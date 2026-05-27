@@ -41,7 +41,7 @@ diplom_project_XYZ/
     ├── Block.cpp           # Игровые блоки
     ├── Ball.cpp            # Логика мяча
     ├── Bonus.cpp           # Система бонусов
-    ├── GameState*.cpp      # Игровые состояния
+    ├── GameState.cpp      # Игровые состояния
     └── ...
 ```
 
