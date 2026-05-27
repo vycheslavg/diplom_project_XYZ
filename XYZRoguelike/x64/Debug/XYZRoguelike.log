@@ -1,0 +1,77 @@
+﻿  AICreeper.cpp
+  AIDeceasedMagician.cpp
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\AIDeceasedMagician.cpp(47,29): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\AIDeceasedMagician.cpp(48,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\AIDeceasedMagician.cpp(50,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  AISwordMan.cpp
+  AttackComponent.cpp
+  CharacterStatsComponent.cpp
+  ControllerInputComponent.cpp
+  DeveloperLevel.cpp
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\InitializeNPCSpawnerComponent.h(15,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'DeveloperLevel.cpp')
+  
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\DeveloperLevel.cpp(213,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\DeveloperLevel.cpp(213,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Explosion.cpp
+  FireBall.cpp
+  Floor.cpp
+  GameObject.cpp
+  InventoryComponent.cpp
+  ItemDropComponent.cpp
+  LevelExit.cpp
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\InitializeNPCSpawnerComponent.h(15,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'LevelExit.cpp')
+  
+  LevelManager.cpp
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\InitializeNPCSpawnerComponent.h(15,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'LevelManager.cpp')
+  
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\LevelManager.cpp(27,29): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(476,82): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(476,82): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(476,82): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(476,82): warning C4244:             _Ty=int
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(476,82): warning C4244:         ]
+  (compiling source file 'LevelManager.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(476,82):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\LevelManager.cpp(33,30):
+          see reference to function template instantiation 'void XYZRoguelike::DeveloperLevel::AddSpawner<XYZRoguelike::AISwordMan,XYZRoguelike::Sword>(void)' being compiled
+          C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\DeveloperLevel.h(41,18):
+          see reference to function template instantiation 'std::shared_ptr<XYZRoguelike::NPCSpawner<XYZRoguelike::Enemy<XYZRoguelike::AISwordMan,XYZRoguelike::Sword>>> std::make_shared<XYZRoguelike::NPCSpawner<XYZRoguelike::Enemy<XYZRoguelike::AISwordMan,XYZRoguelike::Sword>>,XYZEngine::Vector2Df,float,int,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>>(XYZEngine::Vector2Df &&,float &&,int &&,bool &&,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&)' being compiled
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(2913,46):
+          see reference to function template instantiation 'std::_Ref_count_obj2<XYZRoguelike::NPCSpawner<XYZRoguelike::Enemy<XYZRoguelike::AISwordMan,XYZRoguelike::Sword>>>::_Ref_count_obj2<_Ty,float,int,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>>(_Ty &&,float &&,int &&,bool &&,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&)' being compiled
+          with
+          [
+              _Ty=XYZEngine::Vector2Df
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\memory(2100,18):
+          see reference to function template instantiation 'void std::_Construct_in_place<_Ty,XYZEngine::Vector2D<float>,float,int,bool,std::basic_string<char,std::char_traits<char>,std::allocator<char>>>(_Ty &,XYZEngine::Vector2D<float> &&,float &&,int &&,bool &&,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&) noexcept(false)' being compiled
+          with
+          [
+              _Ty=XYZRoguelike::NPCSpawner<XYZRoguelike::Enemy<XYZRoguelike::AISwordMan,XYZRoguelike::Sword>>
+          ]
+  
+  MazeGenerator.cpp
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\InitializeNPCSpawnerComponent.h(15,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'MazeGenerator.cpp')
+  
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\MazeGenerator.cpp(26,25): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Player.cpp
+  SoundPlayer.cpp
+  Sprite.cpp
+  GameMain.cpp
+C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\InitializeNPCSpawnerComponent.h(15,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'GameMain.cpp')
+  
+  Generating Code...
+  Compiling...
+  Menu.cpp
+  Sword.cpp
+  SwordOfKing.cpp
+  Text.cpp
+  Wall.cpp
+  AICursedKingOfSwords.cpp
+  Generating Code...
+  XYZRoguelike.vcxproj -> C:\Users\User\Desktop\ᅟ\Works\cpp\2dGame\XYZRoguelike\x64\Debug\XYZRoguelike.exe
