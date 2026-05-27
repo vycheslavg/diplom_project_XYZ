@@ -10,7 +10,9 @@ class LevelExit {
     LevelExit(const XYZEngine::Vector2Df position);
     void Transition(XYZEngine::Collision collision);
     XYZEngine::GameObject* GetGameObject();
+    void SetIsDoorClosed(bool isClosed);
    private:
     XYZEngine::GameObject* gameObject;
+    bool isDoorClosed = false;
 };
 }  // namespace XYZRoguelike

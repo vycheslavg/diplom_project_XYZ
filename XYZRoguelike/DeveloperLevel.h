@@ -6,6 +6,8 @@
 #include "LevelExit.h"
 #include "NPCSpawner.h"
 #include "Player.h"
+#include "Boss.h"
+#include "GameSettings.h"
 #include "Scene.h"
 #include "SoundPlayer.h"
 #include "Wall.h"
@@ -25,9 +27,13 @@ class DeveloperLevel : public Scene {
     void CreateExit();
     void GenerateMaze();
 
-    template<typename Boss> void AddBoss() {
-        auto boss = std::make_shared<Boss>(XYZEngine::Vector2Df({350.f, 350.f}),
-                                           "Boss");
+    template<typename AIBoss> void AddBoss() {
+        auto boss = std::make_shared<Boss<AIBoss>>(
+            XYZEngine::Vector2Df({200.f, 200.f}), "Boss");
+        if(levelExit) 
+        {
+            levelExit->SetIsDoorClosed(true);
+        }
     }
 
     template<typename AIType, typename WeaponType> void AddSpawner() {
@@ -50,8 +56,9 @@ class DeveloperLevel : public Scene {
     std::unique_ptr<LevelExit> levelExit = nullptr;
     std::unique_ptr<Player> player = nullptr;
     std::unique_ptr<SoundPlayer> backgroundMusic = nullptr;
-    int width = 17;
-    int height = 17;
+    int width = GameSettings::Instance()->MAP_WIDTH;
+    int height = GameSettings::Instance()->MAP_HEIGHT;
+    float sizeBlock = GameSettings::Instance()->BLOCK_SIZE;
     int x_Offset = 0;
     int y_Offset = 0;
     int numSpawners = 0;

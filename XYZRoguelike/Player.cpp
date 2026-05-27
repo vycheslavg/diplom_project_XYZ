@@ -4,6 +4,7 @@
 #include "AttackComponent.h"
 #include "CharacterStatsComponent.h"
 #include "ControllerInputComponent.h"
+#include "InventoryComponent.h"
 #include "Explosion.h"
 #include "Sword.h"
 
@@ -29,6 +30,8 @@ Player::Player(const XYZEngine::Vector2Df& position) {
     playerCamera->SetTurnTracking(false);
 
     auto playerInput = gameObject->AddComponent<XYZEngine::InputComponent>();
+
+    auto inventory = gameObject->AddComponent<InventoryComponent>();
 
     auto transform = gameObject->GetComponent<XYZEngine::TransformComponent>();
     transform->SetWorldPosition(position);

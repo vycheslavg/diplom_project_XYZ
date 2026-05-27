@@ -6,7 +6,6 @@ class LevelManager {
    public:
     static LevelManager* Instance();
     void LoadRandomLevels();
-
    private:
     LevelManager() {}
     ~LevelManager() {}

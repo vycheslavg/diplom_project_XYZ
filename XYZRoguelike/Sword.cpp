@@ -30,8 +30,7 @@ void Sword::Update(float deltaTime) {
         auto characterPosition = ownerTransform->GetWorldPosition();
         auto characterRotation = ownerTransform->GetWorldRotation();
 
-        float dirX = cos(transform->GetWorldRotation() * 3.14159265f /
-                         180.f);  // Переводим в радианы
+        float dirX = cos(transform->GetWorldRotation() * 3.14159265f / 180.f);  
         float dirY = sin(transform->GetWorldRotation() * 3.14159265f / 180.f);
 
         XYZEngine::Vector2Df offset;
@@ -73,7 +72,7 @@ void Sword::DamageCollision(XYZEngine::Collision collision) {
     } catch (const std::invalid_argument& e) {
         LOG_WARN(e.what());
     }
-    if (characterStats && (tickDamage <= 0.f && tickDamage <= 0.f)) {
+    if (characterStats && (tickDamage <= 0.f)) {
         characterStats->DealDamage(swordDamage);
         tickDamage = 1.f;
         std::cout << characterStats->GetHealth() << std::endl;

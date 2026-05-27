@@ -3,15 +3,14 @@
 
 #include "LevelExit.h"
 #include "LevelManager.h"
+#include "InventoryComponent.h"
 #include <GameWorld.h>
 #include <SpriteColliderComponent.h>
 #include <RigidbodyComponent.h>
 #include <ResourceSystem.h>
 
-namespace XYZRoguelike
-{
-LevelExit::LevelExit(const XYZEngine::Vector2Df position) 
-{
+namespace XYZRoguelike {
+LevelExit::LevelExit(const XYZEngine::Vector2Df position) {
     gameObject = XYZEngine::GameWorld::Instance()->CreateGameObject("Exit");
     auto body = gameObject->AddComponent<XYZEngine::RigidbodyComponent>();
     body->SetKinematic(true);
@@ -26,19 +25,29 @@ LevelExit::LevelExit(const XYZEngine::Vector2Df position)
     transform->SetWorldPosition(position);
     collider->SubscribeCollision(
         std::bind(&LevelExit::Transition, this, std::placeholders::_1));
-}                        
+}
 
 void LevelExit::Transition(XYZEngine::Collision collision) {
-	                         
-   /* if (collision.first->GetGameObject()->GetComponent<InventoryComponent>() != nullptr && collision.first->GetGameObject() 
-            ->GetComponent<InventoryComponent>()->Key != 0) 
+    if (collision.first->GetGameObject()->GetComponent<InventoryComponent>() !=
+            nullptr &&
+        collision.first->GetGameObject()
+                ->GetComponent<InventoryComponent>()
+                ->GetKey() != 0) 
     {
-       collision.first->GetGameObject() 
-            ->GetComponent<InventoryComponent>()->Key -= 1;*/
+        collision.first->GetGameObject()
+            ->GetComponent<InventoryComponent>()
+            ->UseKey();
+        isDoorClosed = false;
+    }
 
-    //XYZEngine::GameWorld::Instance()->DestroyGameObject(this->gameObject);
-     LevelManager::Instance()->LoadRandomLevels();
+    // XYZEngine::GameWorld::Instance()->DestroyGameObject(this->gameObject);
+    if (!isDoorClosed) {
+        LevelManager::Instance()->LoadRandomLevels();
+    }
     //}
 }
 XYZEngine::GameObject* LevelExit::GetGameObject() { return gameObject; }
-}
+
+void LevelExit::SetIsDoorClosed(bool isClosed) { isDoorClosed = isClosed; }
+
+}  // namespace XYZRoguelike

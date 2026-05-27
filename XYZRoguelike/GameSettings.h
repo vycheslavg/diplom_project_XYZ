@@ -11,6 +11,11 @@ class GameSettings {
     // Game settings constants
     const unsigned int SCREEN_WIDTH = 800;
     const unsigned int SCREEN_HEIGHT = 600;
+
+    const unsigned int MAP_WIDTH = 17;
+    const unsigned int MAP_HEIGHT = 17;
+    const float BLOCK_SIZE = 64.f;
+
     const float TIME_PER_FRAME = 1.f / 60.f;  // 60 fps
 
     const char* PLAYER_NAME = "Player";

@@ -3,6 +3,8 @@
 #include "AICreeper.h"
 #include "Explosion.h"
 #include "Sword.h"
+#include "AIÑursedKingOfSwords.h"
+#include "AIDeceasedMagician.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -34,8 +36,14 @@ namespace XYZRoguelike {
 
               } 
               else {
-
-                 // add boss;
+                  if (std::rand() % 2 == 0)
+                  {
+                      level->AddBoss<AIÑursedKingOfSwords>();
+                  } 
+                  else 
+                  {                  
+                      level->AddBoss<AIDeceasedMagician>();
+                  }
               } 
 
     }

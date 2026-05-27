@@ -22,8 +22,8 @@ void AttackComponent::Render() {}
 
 void AttackComponent::Attack() {
     if (delayAttack <= 0.f && attackSpeed <= 0.f) {
-        delayAttack = 0.1f;
-        attackSpeed = 2.f;
+        delayAttack = weapon->GetDelayAttack();
+        attackSpeed = weapon->GetAttackSpeed();
         weapon->SetActive(true);
     }
 }

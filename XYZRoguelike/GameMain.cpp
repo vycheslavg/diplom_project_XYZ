@@ -33,6 +33,16 @@ int main() {
         "Floors", "Resources/MapsTexture/Floors.png", {16, 16}, 48, false);
     XYZEngine::ResourceSystem::Instance()->LoadTexture(
         "Explosion", "Resources/Textures/Explosion.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "KingOfSwords", "Resources/Textures/KingOfSwords.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "ShadowOfSword", "Resources/Textures/ShadowOfSword.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "SwordOfKing", "Resources/Textures/SwordOfKing.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "Fireball", "Resources/Textures/Fireball.png");
+    XYZEngine::ResourceSystem::Instance()->LoadTexture(
+        "DeceasedMagician", "Resources/Textures/DeceasedMagician.png");
 
     ResourceSystem::Instance()->LoadSound(
         "BackgroundMusic", "Resources/Music/BackgroundMusic.wav");

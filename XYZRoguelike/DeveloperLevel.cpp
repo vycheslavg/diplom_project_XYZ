@@ -14,7 +14,7 @@ void DeveloperLevel::Start() {
 
     if(player == nullptr) {
         player = std::make_unique<Player>(std::forward<XYZEngine::Vector2Df>(
-            {(x_Offset + width) / 2 * 64.f, (y_Offset + height) / 2 * 64.f}));
+            {(x_Offset + width) / 2 * sizeBlock, (y_Offset + height) / 2 * sizeBlock}));
     }
     if(backgroundMusic == nullptr){
         backgroundMusic = std::make_unique<SoundPlayer>("BackgroundMusic");
@@ -34,8 +34,8 @@ void DeveloperLevel::Stop() {
     if(player != nullptr){
         player->GetGameObject()
             ->GetComponent<TransformComponent>()
-            ->SetWorldPosition({(x_Offset + width) / 2 * 64.f,
-                                (y_Offset + height) / 2 * 64.f});
+            ->SetWorldPosition({(x_Offset + width) / 2 * sizeBlock,
+                                (y_Offset + height) / 2 * sizeBlock});
     }
     for (auto it = walls.begin(); it != walls.end(); ++it) {
         XYZEngine::GameWorld::Instance()->DestroyGameObject(
@@ -101,12 +101,12 @@ void DeveloperLevel::CreateExit() {
     }
 
     levelExit = std::make_unique<LevelExit>(
-        XYZEngine::Vector2Df{exitX * 64.f, exitY * 64.f});
+        XYZEngine::Vector2Df{exitX * sizeBlock, exitY * sizeBlock});
 
     for (auto it = walls.begin(); it != walls.end(); ++it) {
         auto& wall = *it;  // unique_ptr<Wall>
-        if (wall.get()->transform->GetWorldPosition().x == exitX * 64.f &&
-            wall.get()->transform->GetWorldPosition().y == exitY * 64.f) {
+        if (wall.get()->transform->GetWorldPosition().x == exitX * sizeBlock &&
+            wall.get()->transform->GetWorldPosition().y == exitY * sizeBlock) {
             XYZEngine::GameWorld::Instance()->DestroyGameObject(
                 wall.get()->transform->GetGameObject());
             it = walls.erase(it);
@@ -122,7 +122,7 @@ void DeveloperLevel::AddWallTheBorder() {
             if (x != 0 && x != width && y != 0 && y != height && floorEmpty) {
                 floors.push_back(std::make_unique<Floor>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(0)));
             }
 
@@ -130,7 +130,7 @@ void DeveloperLevel::AddWallTheBorder() {
             if (x == 0 && y == 0) {
                 walls.push_back(std::make_unique<Wall>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(25)));
             }
 
@@ -138,7 +138,7 @@ void DeveloperLevel::AddWallTheBorder() {
             if (x == width && y == 0) {
                 walls.push_back(std::make_unique<Wall>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(27)));
             }
 
@@ -146,7 +146,7 @@ void DeveloperLevel::AddWallTheBorder() {
             if (x == 0 && y == height) {
                 walls.push_back(std::make_unique<Wall>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(1)));
             }
 
@@ -154,7 +154,7 @@ void DeveloperLevel::AddWallTheBorder() {
             if (x == width && y == height) {
                 walls.push_back(std::make_unique<Wall>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(3)));
             }
 
@@ -163,12 +163,12 @@ void DeveloperLevel::AddWallTheBorder() {
                 if (floorEmpty) {
                     floors.push_back(std::make_unique<Floor>(
                         std::forward<XYZEngine::Vector2Df>(
-                            {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                            {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                         std::forward<int>(18)));
                 }
                 walls.push_back(std::make_unique<Wall>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(12)));
             }
 
@@ -177,12 +177,12 @@ void DeveloperLevel::AddWallTheBorder() {
                 if (floorEmpty) {
                 floors.push_back(std::make_unique<Floor>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(19)));
                 }
                 walls.push_back(std::make_unique<Wall>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(12)));
             }
 
@@ -190,7 +190,7 @@ void DeveloperLevel::AddWallTheBorder() {
             if (y == 0 && x != width && x != 0) {
                 walls.push_back(std::make_unique<Wall>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(38)));
             }
 
@@ -198,7 +198,7 @@ void DeveloperLevel::AddWallTheBorder() {
             if (y == height && x != width && x != 0) {
                 walls.push_back(std::make_unique<Wall>(
                     std::forward<XYZEngine::Vector2Df>(
-                        {x_Offset + x * 64.f, y_Offset + y * 64.f}),
+                        {x_Offset + x * sizeBlock, y_Offset + y * sizeBlock}),
                     std::forward<int>(38)));
             }
         }

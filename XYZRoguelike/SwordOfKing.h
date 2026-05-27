@@ -8,10 +8,10 @@
 
 #include <SpriteColliderComponent.h>
 namespace XYZRoguelike {
-class Sword : public Weapon {
+class SwordOfKing : public Weapon {
    public:
-    Sword(XYZEngine::GameObject* gameObject);
-    ~Sword();
+    SwordOfKing(XYZEngine::GameObject* gameObject);
+    ~SwordOfKing();
     void Update(float deltaTime) override;
     void Render() override;
     void SetActive(bool OnActive) override;
@@ -23,9 +23,10 @@ class Sword : public Weapon {
     XYZEngine::TransformComponent* ownerTransform;
     XYZEngine::SpriteColliderComponent* collider;
     XYZEngine::RigidbodyComponent* body;
-    float placementDistance = 40.f;
-    float swordDamage = 25.f;
+    bool activeAttack = false;
+    float placementDistance = 135.f;
+    float swordDamage = 35.f;
+    float swingTime = 2.5f;
     float tickDamage = 0.f;
 };
-
 }  // namespace XYZRoguelike

@@ -1,5 +1,6 @@
 #include "CharacterStatsComponent.h"
 
+#include "ItemDropComponent.h"
 #include "GameWorld.h"
 #include "Logger.h"
 #include "Weapon.h"
@@ -57,6 +58,10 @@ void CharacterStatsComponent::Update(float deltaTime) {
 void CharacterStatsComponent::Render() {}
 
 void CharacterStatsComponent::OnDeath() {
+    if(gameObject->GetComponent<ItemDropComponent>())
+    {
+        gameObject->GetComponent<ItemDropComponent>()->Drop();
+    }
     health = 0.f;
     LOG_INFO("Dead");
     stateLifeCharacter = false;

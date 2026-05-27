@@ -161,14 +161,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AICreeper.cpp" />
+    <ClCompile Include="AIDeceasedMagician.cpp" />
     <ClCompile Include="AISwordMan.cpp" />
     <ClCompile Include="AttackComponent.cpp" />
     <ClCompile Include="CharacterStatsComponent.cpp" />
     <ClCompile Include="ControllerInputComponent.cpp" />
     <ClCompile Include="DeveloperLevel.cpp" />
     <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="FireBall.cpp" />
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="InventoryComponent.cpp" />
+    <ClCompile Include="ItemDropComponent.cpp" />
     <ClCompile Include="LevelExit.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="MazeGenerator.cpp" />
@@ -178,24 +182,31 @@
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Sword.cpp" />
+    <ClCompile Include="SwordOfKing.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="AIСursedKingOfSwords.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AICreeper.h" />
+    <ClInclude Include="AIDeceasedMagician.h" />
     <ClInclude Include="AISwordMan.h" />
     <ClInclude Include="AttackComponent.h" />
+    <ClInclude Include="Boss.h" />
     <ClInclude Include="CharacterStatsComponent.h" />
     <ClInclude Include="ControllerInputComponent.h" />
     <ClInclude Include="DeveloperLevel.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Explosion.h" />
+    <ClInclude Include="FireBall.h" />
     <ClInclude Include="Floor.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Collidable.h" />
     <ClInclude Include="IDelayedAction.h" />
     <ClInclude Include="InitializeNPCSpawnerComponent.h" />
+    <ClInclude Include="InventoryComponent.h" />
     <ClInclude Include="IObserver.h" />
+    <ClInclude Include="ItemDropComponent.h" />
     <ClInclude Include="LevelExit.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MazeGenerator.h" />
@@ -208,10 +219,12 @@
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Sword.h" />
+    <ClInclude Include="SwordOfKing.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="Weapon.h" />
+    <ClInclude Include="AIСursedKingOfSwords.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XYZEngine\XYZEngine.vcxproj">
