@@ -32,7 +32,7 @@ diplom_project_XYZ/
 │
 ├── Game.sln                # Solution для Visual Studio
 ├── README.md               # Документация проекта
-├── SFML.zip                # Библиотеки SFML
+├── SFML/...                    # Библиотеки SFML
 │
 └── XYZRoguelike/
     ├── Resources/          # Ресурсы игры (текстуры, шрифты и т.д.)
