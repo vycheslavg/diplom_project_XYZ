@@ -12,7 +12,7 @@ Sword::Sword(XYZEngine::GameObject* gameObject) : Weapon(gameObject) {
     swordRenderer =
         weaponObject->AddComponent<XYZEngine::SpriteRendererComponent>();
     swordRenderer->SetTexture(
-        *XYZEngine::ResourceSystem::Instance()->GetTextureShared("ball"));
+        *XYZEngine::ResourceSystem::Instance()->GetTextureShared("sword"));
     swordRenderer->SetPixelSize(0, 0);
     body = weaponObject->AddComponent<XYZEngine::RigidbodyComponent>();
     body->SetKinematic(true);
