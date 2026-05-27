@@ -28,7 +28,7 @@ int main() {
     XYZEngine::ResourceSystem::Instance()->LoadTexture(
         "ball", "Resources/Textures/ball.png");
     XYZEngine::ResourceSystem::Instance()->LoadTexture(
-        "ball22", "Resources/Textures/ball22.png");
+        "sword", "Resources/Textures/sword.png");
     XYZEngine::ResourceSystem::Instance()->LoadTextureMap(
         "Walls", "Resources/MapsTexture/Walls.png", {16, 16}, 48, false);
     XYZEngine::ResourceSystem::Instance()->LoadTextureMap(
