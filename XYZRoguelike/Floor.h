@@ -1,18 +1,18 @@
 #pragma once
 
-#include <GameWorld.h>
-#include <SpriteRendererComponent.h>
-#include <ResourceSystem.h>
 #include "GameObject.h"
 
-namespace XYZRoguelike
-{
-	class Floor
-	{
-	public:
-		Floor(const XYZEngine::Vector2Df& position, int textureMapIndex);
-	private:
-		XYZEngine::GameObject* gameObject;
-	};
-}
+#include <GameWorld.h>
+#include <ResourceSystem.h>
+#include <SpriteRendererComponent.h>
 
+namespace XYZRoguelike {
+class Floor {
+   public:
+    Floor(const XYZEngine::Vector2Df position, int textureMapIndex);
+    XYZEngine::TransformComponent* transform;
+
+   private:
+    XYZEngine::GameObject* gameObject;
+};
+}  // namespace XYZRoguelike
