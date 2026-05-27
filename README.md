@@ -52,7 +52,7 @@ diplom_project_XYZ/
 ### 1. Клонировать репозиторий
 
 ```bash
-git clone https://github.com/USERNAME/diplom_project_XYZ.git
+git clone https://github.com/vycheslavg/diplom_project_XYZ.git
 ```
 
 ### 2. Открыть проект
