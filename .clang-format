@@ -1,0 +1,16 @@
+BasedOnStyle: Google
+IndentWidth: 4
+ColumnLimit: 80
+ReflowComments: true
+Standard: C++11
+PointerAlignment: Left
+SpaceAfterTemplateKeyword: false
+AlwaysBreakTemplateDeclarations: No
+IncludeCategories:
+  - Regex: '^"pch\.h"$'
+    Priority: -1
+  - Regex: '^".*\.h"$'
+    Priority: 1
+  - Regex: '^<.*>$'
+    Priority: 2
+SortIncludes: true
