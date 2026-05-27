@@ -88,12 +88,12 @@ Game.sln
 
 ---
 
-## Работа с Git-ветками
+##Git-ветки
 
 ### Основная ветка
 
 ```bash
-main
+diplom_project_XYZ-main
 ```
 
 ### Ветки
